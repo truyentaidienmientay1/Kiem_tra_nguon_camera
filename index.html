@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống giám sát năng lượng</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel='shortcut icon' href='ICON.jpg' />
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics-compat.js"></script>
+</head>
+<body>
+    <h1 class="main-title neon-glow">HỆ THỐNG GIÁM SÁT NGUỒN CAMERA</h1>
+    <div class="container">
+        <!-- Camera 01 -->
+        <div class="camera-box active">
+            <div class="header">
+                <img src="ai.png" alt="AIoT Logo" class="logo">
+                <h2 class="neon-glow">Hệ thống giám sát nguồn camera</h2>
+            </div>
+            <div class="datetime-container">
+                <p class="date gradient-text" style="font-size: 18px;">Ngày - tháng - năm</p>
+                <p class="time gradient-text" style="font-size: 18px;">giờ - phút - giây</p>
+            </div>
+            <p>Điện áp khối pin: <span id="batteryVoltage" class="voltage neon-glow2">12.86 V</span></p>
+            <p class="camera-id">CAMERA 01 - Vị trí: </p>
+        </div>
+
+        <!-- Camera 02 -->
+        <div class="camera-box">
+            <div class="plus-icon">+</div>
+            <p class="not-activated">Not activated</p>
+        </div>
+
+        <!-- Inactive Cameras -->
+        <div class="camera-box">
+            <div class="plus-icon">+</div>
+            <p class="not-activated">Not activated</p>
+        </div>
+        <div class="camera-box">
+            <div class="plus-icon">+</div>
+            <p class="not-activated">Not activated</p>
+        </div>
+        <div class="camera-box">
+            <div class="plus-icon">+</div>
+            <p class="not-activated">Not activated</p>
+        </div>
+        <div class="camera-box">
+            <div class="plus-icon">+</div>
+            <p class="not-activated">Not activated</p>
+        </div>
+    </div>
+
+    <!-- Load JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

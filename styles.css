@@ -1,0 +1,203 @@
+/* Reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a2526;
+    color: #fff;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+/* Hiệu ứng Neon Glow */
+.neon-glow {
+    text-shadow: 
+        0 0 5px rgba(0, 191, 255, 0.8),
+        0 0 10px rgba(0, 191, 255, 0.6),
+        0 0 20px rgba(0, 191, 255, 0.4);
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+.neon-glow:hover {
+    text-shadow: 
+        0 0 10px rgba(0, 191, 255, 1),
+        0 0 20px rgba(0, 191, 255, 0.8),
+        0 0 30px rgba(0, 191, 255, 0.6);
+}
+
+.neon-glow2 {
+    text-shadow: 
+        0 0 5px rgba(255, 60, 0, 0.8),
+        0 0 10px rgba(255, 38, 0, 0.6),
+        0 0 20px rgba(159, 0, 0, 0.4);
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+/* Tiêu đề chính */
+.main-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Container chính */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Camera Box */
+.camera-box {
+    background: linear-gradient(145deg, #2c3e50, #34495e);
+    border: 1px solid #34495e;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.camera-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 191, 255, 0.3);
+}
+
+.camera-box.active {
+    background: linear-gradient(145deg, #34495e, #3b5998);
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.header h2 {
+    font-size: 1.4rem;
+    color: #ffffff;
+}
+
+/* Logo */
+.logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+    filter: drop-shadow(0 0 5px rgba(0, 191, 255, 0.6));
+    animation: smoothSparkle 3s infinite ease-in-out;
+    transition: filter 0.5s ease-in-out;
+}
+
+.logo:hover {
+    filter: drop-shadow(0 0 10px rgba(0, 191, 255, 1));
+}
+
+@keyframes smoothSparkle {
+    0%, 100% { filter: brightness(100%) drop-shadow(0 0 5px rgba(0, 191, 255, 0.6)); }
+    50% { filter: brightness(120%) drop-shadow(0 0 10px rgba(0, 191, 255, 0.8)); }
+}
+
+/* DateTime Container */
+.datetime-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin: 3px 0;
+   
+}
+
+.date, .time {
+    font-size: 1.2rem;
+}
+
+/* Voltage */
+.voltage {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #f1c40f;
+}
+
+/* Camera ID */
+.camera-id {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Plus Icon và Not Activated */
+.plus-icon {
+    font-size: 3rem;
+    color: #ecf0f1;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.plus-icon:hover {
+    transform: scale(1.2);
+}
+
+.not-activated {
+    color: #7f8c8d;
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 1.8rem;
+    }
+
+    .camera-box {
+        height: 220px;
+        padding: 10px;
+    }
+
+    .header h2 {
+        font-size: 1.2rem;
+    }
+
+    .voltage {
+        font-size: 2rem;
+    }
+
+    .date, .time {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .camera-box {
+        height: 200px;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Animation FadeIn */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
