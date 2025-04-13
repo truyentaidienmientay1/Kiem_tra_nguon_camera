@@ -1,3 +1,38 @@
+// BỔ SUNG: Xử lý đăng nhập
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const errorMessage = document.getElementById("errorMessage");
+
+    // Giả lập kiểm tra đăng nhập (có thể thay bằng Firebase Auth)
+    if (username === "admin" && password === "1234567890") {
+        // Ẩn giao diện đăng nhập, hiện giao diện chính
+        document.getElementById("loginContainer").style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+        errorMessage.textContent = "";
+        // Khởi tạo Firebase sau khi đăng nhập thành công
+        initializeFirebase();
+    } else {
+        errorMessage.textContent = "Tên người dùng hoặc mật khẩu không đúng!";
+    }
+});
+
+// BỔ SUNG: Xử lý ẩn/hiện mật khẩu
+document.getElementById("togglePassword").addEventListener("click", function() {
+    const passwordInput = document.getElementById("password");
+    const toggleIcon = this;
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        toggleIcon.textContent = "🙈"; // Biểu tượng khi hiển thị mật khẩu
+    } else {
+        passwordInput.type = "password";
+        toggleIcon.textContent = "👁️"; // Biểu tượng khi ẩn mật khẩu
+    }
+});
+
 // Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyDFYfD6yXOI2AXciNgeBtit815IaANvFmc",
