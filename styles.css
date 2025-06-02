@@ -325,3 +325,44 @@ body {
 .toggle-password:hover {
     color: #00b7eb;
 }
+
+
+.toggle-switch {
+  position: relative;
+  width: 70px;         /* Chiều rộng nút */
+  height: 30px;        /* Chiều cao nút */
+  background-color: #ccc;
+  border-radius: 15px; /* Bán kính = 1/2 chiều cao */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.toggle-switch.active {
+  background-color: #4cd964;
+}
+
+.toggle-circle {
+  position: absolute;
+  top: 4px;            /* Căn giữa theo chiều dọc */
+  left: 4px;
+  width: 22px;         /* Kích thước nút tròn */
+  height: 22px;
+  background-color: white;
+  border-radius: 50%;
+  transition: left 0.3s ease;
+}
+
+.toggle-switch.active .toggle-circle {
+  left: 44px; /* = 70 - 4 - 22 = 44 */
+}
+
+.toggle-text {
+  position: absolute;
+  top: 7px;
+  left: 23px;
+  font-weight: bold;
+  font-size: 12px;
+  color: white;
+  pointer-events: none;
+}

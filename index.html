@@ -1,94 +1,109 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hệ thống giám sát năng lượng</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel='shortcut icon' href='ICON.jpg' />
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics-compat.js"></script>
-</head>
-<body>
-    <!-- BỔ SUNG: Giao diện đăng nhập -->
-    <div class="login-container" id="loginContainer">
-        <div class="login-box">
-            <h2 class="neon-glow">Đăng Nhập</h2>
-            <form id="loginForm">
-                <div class="input-group">
-                    <label for="username">Tên người dùng</label>
-                    <input type="text" id="username" placeholder="Nhập tên người dùng" required>
-                </div>
-                <div class="input-group">
-                    <label for="password">Mật khẩu</label>
-                    <div class="password-container">
-                        <input type="password" id="password" placeholder="Nhập mật khẩu" required>
-                        <span class="toggle-password" id="togglePassword">👁️</span>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hệ thống giám sát năng lượng</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel='shortcut icon' href='ICON.jpg' />
+        <!-- Firebase SDK -->
+        <script
+            src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+        <script
+            src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+        <script
+            src="https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics-compat.js"></script>
+    </head>
+    <body>
+        <!-- BỔ SUNG: Giao diện đăng nhập -->
+        <div class="login-container" id="loginContainer">
+            <div class="login-box">
+                <h2 class="neon-glow">Đăng Nhập</h2>
+                <form id="loginForm">
+                    <div class="input-group">
+                        <label for="username">Tên người dùng</label>
+                        <input type="text" id="username"
+                            placeholder="Nhập tên người dùng" required>
                     </div>
-                </div>
-                <button type="submit" class="login-btn neon-glow">Đăng nhập</button>
-                <p id="errorMessage" class="error-message"></p>
-            </form>
-        </div>
-    </div>
-
-    <!-- SỬA ĐỔI: Bọc giao diện chính trong div main-content -->
-    <div class="main-content" id="mainContent" style="display: none;">
-        <h1 class="main-title neon-glow">HỆ THỐNG GIÁM SÁT NGUỒN CAMERA</h1>
-        <div class="container">
-            <!-- Camera 01 -->
-            <div class="camera-box active">
-                <div class="header">
-                    <img src="ai.png" alt="AIoT Logo" class="logo">
-                    <h2 class="neon-glow">Hệ thống giám sát nguồn camera</h2>
-                </div>
-                <div class="datetime-container">
-                    <p class="date gradient-text">Ngày - tháng - năm</p>
-                    <p class="time gradient-text">giờ - phút - giây</p>
-                </div>
-                <p>Điện áp khối pin: <span id="batteryVoltage" class="voltage neon-glow">12.86 V</span></p>
-                <p>Sạc đầy = 14.6 V - Cạn = 10.8 V</p>
-                <p class="camera-id">CAMERA 01 - Vị trí: </p>
-            </div>
-
-            <!-- Camera 02 -->
-            <div class="camera-box">
-               <div class="header">
-                    <img src="ai.png" alt="AIoT Logo" class="logo">
-                    <h2 class="neon-glow">Hệ thống giám sát nguồn camera</h2>
-                </div>
-                <div class="datetime-container">
-                    <p class="date2 gradient-text">Ngày - tháng - năm</p>
-                    <p class="time2 gradient-text">giờ - phút - giây</p>
-                </div>
-                <p>Điện áp khối pin: <span id="batteryVoltage-02" class="voltage neon-glow">12.86 V</span></p>
-                <p>Sạc đầy = 14.6 V - Cạn = 10.8 V</p>
-                <p class="camera-id">CAMERA 02 - Vị trí: </p>
-            </div>
-
-            <!-- Inactive Cameras -->
-            <div class="camera-box">
-                <div class="plus-icon">+</div>
-                <p class="not-activated">Not activated</p>
-            </div>
-            <div class="camera-box">
-                <div class="plus-icon">+</div>
-                <p class="not-activated">Not activated</p>
-            </div>
-            <div class="camera-box">
-                <div class="plus-icon">+</div>
-                <p class="not-activated">Not activated</p>
-            </div>
-            <div class="camera-box">
-                <div class="plus-icon">+</div>
-                <p class="not-activated">Not activated</p>
+                    <div class="input-group">
+                        <label for="password">Mật khẩu</label>
+                        <div class="password-container">
+                            <input type="password" id="password"
+                                placeholder="Nhập mật khẩu" required>
+                            <span class="toggle-password"
+                                id="togglePassword">👁️</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="login-btn neon-glow">Đăng
+                        nhập</button>
+                    <p id="errorMessage" class="error-message"></p>
+                </form>
             </div>
         </div>
-    </div>
 
-    <!-- Load JavaScript -->
-    <script src="script.js"></script>
-</body>
+        <!-- SỬA ĐỔI: Bọc giao diện chính trong div main-content -->
+        <div class="main-content" id="mainContent" style="display: none;">
+            <h1 class="main-title neon-glow">HỆ THỐNG GIÁM SÁT NGUỒN CAMERA</h1>
+            <div class="container">
+                <!-- Camera 01 -->
+                <div class="camera-box active">
+                    <div class="header">
+                        <img src="ai.png" alt="AIoT Logo" class="logo">
+                        <h2 class="neon-glow">Hệ thống giám sát nguồn
+                            camera</h2>
+                    </div>
+                    <div class="datetime-container">
+                        <p class="date gradient-text">Ngày - tháng - năm</p>
+                        <p class="time gradient-text">giờ - phút - giây</p>
+                    </div>
+                    <p>Điện áp khối pin: <span id="batteryVoltage"
+                            class="voltage neon-glow">12.86 V</span></p>
+                    <p>Sạc đầy = 14.6 V - Cạn = 10.8 V</p>
+                    <p class="camera-id">CAMERA 01 - Vị trí: </p>
+                </div>
+
+                <!-- Camera 02 -->
+                <div class="camera-box">
+                    <div class="header">
+                        <img src="ai.png" alt="AIoT Logo" class="logo">
+                        <h2 class="neon-glow">Hệ thống giám sát nguồn
+                            camera</h2>
+                    </div>
+                    <div class="datetime-container">
+                        <p class="date2 gradient-text">Ngày - tháng - năm</p>
+                        <p class="time2 gradient-text">giờ - phút - giây</p>
+                        <div id="toggleButton" class="toggle-switch">
+                            <div class="toggle-circle"></div>
+                            <div class="toggle-text" id="toggleText">OFF</div>
+                        </div>
+                    </div>
+                    <p>Điện áp khối pin: <span id="batteryVoltage-02"
+                            class="voltage neon-glow">12.86 V</span></p>
+                    <p>Sạc đầy = 14.6 V - Cạn = 10.8 V</p>
+                    <p class="camera-id">CAMERA 02 - Vị trí: </p>
+                </div>
+
+                <!-- Inactive Cameras -->
+                <div class="camera-box">
+                    <div class="plus-icon">+</div>
+                    <p class="not-activated">Not activated</p>
+                </div>
+                <div class="camera-box">
+                    <div class="plus-icon">+</div>
+                    <p class="not-activated">Not activated</p>
+                </div>
+                <div class="camera-box">
+                    <div class="plus-icon">+</div>
+                    <p class="not-activated">Not activated</p>
+                </div>
+                <div class="camera-box">
+                    <div class="plus-icon">+</div>
+                    <p class="not-activated">Not activated</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Load JavaScript -->
+        <script src="script.js"></script>
+    </body>
 </html>

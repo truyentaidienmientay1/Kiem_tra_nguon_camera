@@ -99,3 +99,38 @@ timeRef2.on('value', snap => {
     console.error("Error fetching Time:", error);
     document.querySelector(".time2").textContent = "Lỗi tải giờ";
 });
+
+    const relayRef = firebase.database().ref(BASE_PATH + "RelayControl");
+
+    const toggleButton = document.getElementById("toggleButton");
+    const toggleText = document.getElementById("toggleText");
+
+    // Cập nhật giao diện theo giá trị
+    function updateUI(value) {
+      if (value == 0) {
+        toggleButton.classList.add("active");
+        toggleText.textContent = "ON";
+      } else {
+        toggleButton.classList.remove("active");
+        toggleText.textContent = "OFF";
+      }
+    }
+
+    // Lấy trạng thái hiện tại khi load
+    relayRef.once("value").then((snapshot) => {
+      updateUI(snapshot.val());
+    });
+
+    // Bấm để thay đổi giá trị
+    toggleButton.addEventListener("click", () => {
+      relayRef.once("value").then((snapshot) => {
+        let currentValue = snapshot.val();
+        let newValue = currentValue == 0 ? 1 : 0;
+        relayRef.set(newValue);
+      });
+    });
+
+    // Theo dõi cập nhật realtime
+    relayRef.on("value", (snapshot) => {
+      updateUI(snapshot.val());
+    });
