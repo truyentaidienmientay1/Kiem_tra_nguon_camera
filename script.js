@@ -7,7 +7,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     const errorMessage = document.getElementById("errorMessage");
 
     // Giả lập kiểm tra đăng nhập (có thể thay bằng Firebase Auth)
-    if (username === "admin" && password === "1234567890") {
+    if (username === "admin" && password === "2411") {
         // Ẩn giao diện đăng nhập, hiện giao diện chính
         document.getElementById("loginContainer").style.display = "none";
         document.getElementById("mainContent").style.display = "block";
