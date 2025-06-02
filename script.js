@@ -58,6 +58,13 @@ batteryVoltageRef.on('value', snap => {
     document.getElementById("batteryVoltage").innerHTML = `${snap.val()} <span class="unit">V</span>`;
 });
 
+// Monitor battery voltage
+var batteryVoltageRef2 = firebase.database().ref(BASE_PATH + "Khoi_pin_002");
+batteryVoltageRef2.on('value', snap => {
+    document.getElementById("batteryVoltage-02").innerHTML = `${snap.val()} <span class="unit">V</span>`;
+});
+
+
 // Monitor Date from Firebase
 var dateRef = firebase.database().ref(BASE_PATH + "Date");
 dateRef.on('value', snap => {
@@ -67,6 +74,15 @@ dateRef.on('value', snap => {
     document.querySelector(".date").textContent = "Lỗi tải ngày";
 });
 
+// Monitor Date from Firebase
+var dateRef2 = firebase.database().ref(BASE_PATH + "Date2");
+dateRef2.on('value', snap => {
+    document.querySelector(".date2").textContent = snap.val();
+}, (error) => {
+    console.error("Error fetching Date:", error);
+    document.querySelector(".date2").textContent = "Lỗi tải ngày";
+});
+
 // Monitor Time from Firebase
 var timeRef = firebase.database().ref(BASE_PATH + "Time");
 timeRef.on('value', snap => {
@@ -74,4 +90,12 @@ timeRef.on('value', snap => {
 }, (error) => {
     console.error("Error fetching Time:", error);
     document.querySelector(".time").textContent = "Lỗi tải giờ";
+});
+// Monitor Time from Firebase
+var timeRef2 = firebase.database().ref(BASE_PATH + "Time2");
+timeRef2.on('value', snap => {
+    document.querySelector(".time2").textContent = snap.val();
+}, (error) => {
+    console.error("Error fetching Time:", error);
+    document.querySelector(".time2").textContent = "Lỗi tải giờ";
 });
